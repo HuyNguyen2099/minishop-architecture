@@ -1,0 +1,16 @@
+services:
+  minishop-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: minishop-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Hc0811!!"
+      MSSQL_PID: "Developer"
+    ports:
+      - "14333:1433"
+    volumes:
+      - minishop_sqlserver_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  minishop_sqlserver_data:
